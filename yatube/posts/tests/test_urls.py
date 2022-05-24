@@ -63,7 +63,8 @@ class StaticURLTests(TestCase):
         self.assertRedirects(response, '/auth/login/?next=/create/')
 
     def test_urls_uses_correct_status(self):
-        list_urls = ['/posts/1/', '/profile/author/', '/group/test_group/', '/']
+        list_urls = ['/posts/1/', '/profile/author/',
+                     '/group/test_group/', '/']
         for url in list_urls:
             response = self.guest_client.get(url)
             self.assertEqual(response.status_code, 200)
@@ -79,4 +80,3 @@ class StaticURLTests(TestCase):
 
         response = self.guest_client.get('/unexisting_page/')
         self.assertEqual(response.status_code, 404)
-
