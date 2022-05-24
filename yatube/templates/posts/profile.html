@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Профайл пользователя {{ author.get_full_name }} {% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <h4>Все посты пользователя: {{ author.get_full_name }} </h4>
+    <h4>Всего постов: {{ count_posts }} </h4>
+
+    {% for post in page_obj %}
+      {% include 'includes/posts.html' %}
+    {% endfor %}
+
+    {% include 'posts/includes/paginator.html' %}
+  </div>
+{% endblock %}

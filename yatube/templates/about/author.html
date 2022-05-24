@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Об авторе проекта{% endblock %}
+{% block content %}
+  <div class="container">
+    <h2 class="text-center">Привет, я Михутов Тимур.</h2>
+    <img src="{% static 'img/milaya.jpg' %}" width="640"
+         height="400" class="rounded mx-auto d-block" alt="">
+    <h3 class="text-center">
+      Python Backend Developer <br>
+      Умею делать сайты на Django. <br>
+      Мой GitHub - <a href="https://github.com/T1RuS"> https://github.com/T1RuS </a> <br>
+      Мой VK - <a href="https://vk.com/t1rusx"> https://vk.com/t1rusx </a>
+    </h3>
+  </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+<div class="card bg-light mb-3">
+  <article>
+    <ul class="card-header list-unstyled">
+      <li>
+        Автор: <a class="btn-link" href="{% url 'posts:profile' post.author %}">{{ post.author.get_full_name }}</a>
+      </li>
+      <li>
+        Дата публикации: {{ post.pub_date|date:"d E Y" }}
+      </li>
+    </ul>
+    <div class="card-body">
+    {% load user_filters %}
+      <p>{{ post.text }}</p>
+      <a class="btn btn-secondary" href="{% url "posts:post_detail" post.id %}">Подробная информация </a>
+      {% if post.group %}
+        <a class="btn btn-secondary" href="{% url 'posts:group_list' post.group.slug %}">
+          Все записи группы: {{post.group.title}}</a>
+      {% endif %}
+      {% if post.author|lower == user.username|lower %}
+        <a class="btn btn-secondary" href="{% url 'posts:post_edit' post.id %}">
+          Редактировать пост </a>
+      {% endif %}
+    </div>
+  </article>
+</div>
